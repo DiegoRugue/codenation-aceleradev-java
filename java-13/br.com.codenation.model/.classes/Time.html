@@ -1,0 +1,157 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: Time</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">br.com.codenation.model</a> ]
+</div>
+
+<h1>Coverage Summary for Class: Time (br.com.codenation.model)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Time</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/ 1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (11/ 11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (31/ 31)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package br.com.codenation.model;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import java.time.LocalDate;
+<i>4</i>&nbsp;
+<i>5</i>&nbsp;public class Time extends BaseModel {
+<i>6</i>&nbsp;    private String nome;
+<i>7</i>&nbsp;    private LocalDate dataCriacao;
+<i>8</i>&nbsp;    private String corUniformePrincipal;
+<i>9</i>&nbsp;    private String corUniformeSecundario;
+<i>10</i>&nbsp;    private Long idCapitao;
+<i>11</i>&nbsp;
+<i>12</i>&nbsp;    public Time(Long id, String nome, LocalDate dataCriacao, String corUniformePrincipal, String corUniformeSecundario) {
+<b class="fc"><i>13</i>&nbsp;        super(id);</b>
+<b class="fc"><i>14</i>&nbsp;        this.setNome(nome);</b>
+<b class="fc"><i>15</i>&nbsp;        this.setDataCriacao(dataCriacao);</b>
+<b class="fc"><i>16</i>&nbsp;        this.setCorUniformePrincipal(corUniformePrincipal);</b>
+<b class="fc"><i>17</i>&nbsp;        this.setCorUniformeSecundario(corUniformeSecundario);</b>
+<b class="fc"><i>18</i>&nbsp;    }</b>
+<i>19</i>&nbsp;
+<i>20</i>&nbsp;    public String getNome() {
+<b class="fc"><i>21</i>&nbsp;        return nome;</b>
+<i>22</i>&nbsp;    }
+<i>23</i>&nbsp;
+<i>24</i>&nbsp;    public void setNome(String nome) {
+<b class="fc"><i>25</i>&nbsp;        if (nome == null || nome.trim().isEmpty()) {</b>
+<b class="fc"><i>26</i>&nbsp;            throw new NullPointerException(&quot;nome é obrigatório&quot;);</b>
+<i>27</i>&nbsp;        }
+<b class="fc"><i>28</i>&nbsp;        this.nome = nome;</b>
+<b class="fc"><i>29</i>&nbsp;    }</b>
+<i>30</i>&nbsp;
+<i>31</i>&nbsp;    public LocalDate getDataCriacao() {
+<b class="fc"><i>32</i>&nbsp;        return dataCriacao;</b>
+<i>33</i>&nbsp;    }
+<i>34</i>&nbsp;
+<i>35</i>&nbsp;    public void setDataCriacao(LocalDate dataCriacao) {
+<b class="fc"><i>36</i>&nbsp;        if (dataCriacao == null) {</b>
+<b class="fc"><i>37</i>&nbsp;            throw new NullPointerException(&quot;dataCriacao é obrigatório&quot;);</b>
+<i>38</i>&nbsp;        }
+<b class="fc"><i>39</i>&nbsp;        this.dataCriacao = dataCriacao;</b>
+<b class="fc"><i>40</i>&nbsp;    }</b>
+<i>41</i>&nbsp;
+<i>42</i>&nbsp;    public String getCorUniformePrincipal() {
+<b class="fc"><i>43</i>&nbsp;        return corUniformePrincipal;</b>
+<i>44</i>&nbsp;    }
+<i>45</i>&nbsp;
+<i>46</i>&nbsp;    public void setCorUniformePrincipal(String corUniformePrincipal) {
+<b class="fc"><i>47</i>&nbsp;        if (corUniformePrincipal == null || corUniformePrincipal.trim().isEmpty()) {</b>
+<b class="fc"><i>48</i>&nbsp;            throw new NullPointerException(&quot;corUniformePrincipal é obrigatório&quot;);</b>
+<i>49</i>&nbsp;        }
+<b class="fc"><i>50</i>&nbsp;        this.corUniformePrincipal = corUniformePrincipal;</b>
+<b class="fc"><i>51</i>&nbsp;    }</b>
+<i>52</i>&nbsp;
+<i>53</i>&nbsp;    public String getCorUniformeSecundario() {
+<b class="fc"><i>54</i>&nbsp;        return corUniformeSecundario;</b>
+<i>55</i>&nbsp;    }
+<i>56</i>&nbsp;
+<i>57</i>&nbsp;    public void setCorUniformeSecundario(String corUniformeSecundario) {
+<b class="fc"><i>58</i>&nbsp;        if (corUniformeSecundario == null || corUniformeSecundario.trim().isEmpty()) {</b>
+<b class="fc"><i>59</i>&nbsp;            throw new NullPointerException(&quot;corUniformeSecundario é obrigatório&quot;);</b>
+<i>60</i>&nbsp;        }
+<b class="fc"><i>61</i>&nbsp;        if (corUniformeSecundario.equals(getCorUniformePrincipal())) {</b>
+<b class="fc"><i>62</i>&nbsp;            throw new IllegalArgumentException(&quot;Cor do uniforme principal não pode ser igual ao secundário&quot;);</b>
+<i>63</i>&nbsp;        }
+<b class="fc"><i>64</i>&nbsp;        this.corUniformeSecundario = corUniformeSecundario;</b>
+<b class="fc"><i>65</i>&nbsp;    }</b>
+<i>66</i>&nbsp;
+<i>67</i>&nbsp;    public Long getIdCapitao() {
+<b class="fc"><i>68</i>&nbsp;        return idCapitao;</b>
+<i>69</i>&nbsp;    }
+<i>70</i>&nbsp;
+<i>71</i>&nbsp;    public void setIdCapitao(Long idCapitao) {
+<b class="fc"><i>72</i>&nbsp;        this.idCapitao = idCapitao;</b>
+<b class="fc"><i>73</i>&nbsp;    }</b>
+<i>74</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2020-04-26 17:45</div>
+</div>
+</body>
+</html>
