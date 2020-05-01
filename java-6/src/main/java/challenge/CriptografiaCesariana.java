@@ -7,9 +7,7 @@ public class CriptografiaCesariana implements Criptografia {
 
     @Override
     public String criptografar(String text) {
-        if (text.isEmpty()) {
-            throw new IllegalArgumentException();
-        }
+        verifyText(text);
 
         text = text.toLowerCase();
         String message = "";
@@ -34,11 +32,15 @@ public class CriptografiaCesariana implements Criptografia {
         return message;
     }
 
-    @Override
-    public String descriptografar(String text) {
+    private void verifyText(String text) {
         if (text.isEmpty()) {
             throw new IllegalArgumentException();
         }
+    }
+
+    @Override
+    public String descriptografar(String text) {
+        verifyText(text);
 
         text = text.toLowerCase();
         String message = "";
