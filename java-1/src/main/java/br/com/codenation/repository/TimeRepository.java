@@ -1,17 +1,24 @@
 package br.com.codenation.repository;
 
+import br.com.codenation.desafio.exceptions.TimeNaoEncontradoException;
 import br.com.codenation.model.Time;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class TimeRepository {
     private List<Time> times = new ArrayList<>();
 
     public Time buscarTimePorId(Long id) {
-        return times.stream().filter(x -> x.getId().equals(id)).findFirst().get();
+        Optional<Time> optionalTime = Optional.ofNullable(times.stream()
+                .filter(x -> x.getId().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new TimeNaoEncontradoException("Time não encontrado")));
+
+        return optionalTime.get();
     }
 
     public List<Long> listarTimes() {

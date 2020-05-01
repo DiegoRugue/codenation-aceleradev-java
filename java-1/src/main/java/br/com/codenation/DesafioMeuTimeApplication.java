@@ -139,6 +139,9 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 		if (top == null) {
 			throw new NullPointerException("top é obrigatório");
 		}
+		if (top < 0) {
+			throw new IllegalArgumentException("top não pode ser negativo");
+		}
     	return jogadorRepository.buscarTopJogadores(top);
 	}
 
@@ -156,18 +159,5 @@ public class DesafioMeuTimeApplication implements MeuTimeInterface {
 			return timeFora.getCorUniformeSecundario();
 		}
 		return timeFora.getCorUniformePrincipal();
-	}
-
-	public void clearTimes() {
-    	timeRepository.clear();
-	}
-
-	public void clearJogadores() {
-    	jogadorRepository.clear();
-	}
-
-	public void clearAll() {
-		clearTimes();
-		clearJogadores();
 	}
 }

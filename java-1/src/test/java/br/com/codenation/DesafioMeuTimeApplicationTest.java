@@ -5,6 +5,7 @@ import br.com.codenation.desafio.exceptions.IdentificadorUtilizadoException;
 import br.com.codenation.desafio.exceptions.JogadorNaoEncontradoException;
 import br.com.codenation.desafio.exceptions.TimeNaoEncontradoException;
 import br.com.codenation.model.Time;
+import br.com.codenation.repository.JogadorRepository;
 import br.com.codenation.repository.TimeRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
@@ -20,10 +21,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class DesafioMeuTimeApplicationTest {
 
     private final DesafioMeuTimeApplication desafio = new DesafioMeuTimeApplication();
+    private final TimeRepository timeRepository = new TimeRepository();
+    private final JogadorRepository jogadorRepository = new JogadorRepository();
 
     @AfterEach
     public void clear() {
-        desafio.clearAll();
+        timeRepository.clear();
+        jogadorRepository.clear();
     }
 
     @Test

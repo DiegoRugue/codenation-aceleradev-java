@@ -1,23 +1,30 @@
 package br.com.codenation.repository;
 
+import br.com.codenation.desafio.exceptions.JogadorNaoEncontradoException;
 import br.com.codenation.model.Jogador;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class JogadorRepository {
     private List<Jogador> jogadores = new ArrayList<>();
 
     private Jogador buscarJogadorPorId(Long id) {
-        return jogadores.stream().filter(x -> x.getId().equals(id)).findFirst().get();
+        Optional<Jogador> optionalJogador = Optional.ofNullable(jogadores.stream()
+                .filter(x -> x.getId().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new JogadorNaoEncontradoException("Jogador não encontrado")));
+
+        return optionalJogador.get();
     }
 
     public List<Long> buscarTopJogadores(int quantidadeJogadores) {
         return jogadores.stream()
-                .sorted(Comparator.comparing(Jogador::getSalario)
+                .sorted(Comparator.comparing(Jogador::getNivelHabilidade)
                         .reversed()
                         .thenComparing(Jogador::getId))
                 .mapToLong(Jogador::getId)

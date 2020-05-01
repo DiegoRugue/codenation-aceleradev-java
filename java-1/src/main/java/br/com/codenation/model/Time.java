@@ -58,9 +58,6 @@ public class Time extends BaseModel {
         if (corUniformeSecundario == null || corUniformeSecundario.trim().isEmpty()) {
             throw new NullPointerException("corUniformeSecundario é obrigatório");
         }
-        if (corUniformeSecundario.equals(getCorUniformePrincipal())) {
-            throw new IllegalArgumentException("Cor do uniforme principal não pode ser igual ao secundário");
-        }
         this.corUniformeSecundario = corUniformeSecundario;
     }
 
@@ -69,6 +66,12 @@ public class Time extends BaseModel {
     }
 
     public void setIdCapitao(Long idCapitao) {
+        if (idCapitao == null) {
+            throw new NullPointerException("id capitão não pode ser nulo");
+        }
+        if (idCapitao < 0) {
+            throw new IllegalArgumentException("Id capitão não pode ser negativo");
+        }
         this.idCapitao = idCapitao;
     }
 }
